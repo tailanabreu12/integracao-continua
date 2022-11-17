@@ -18,5 +18,6 @@ jobs:
           java-version: '11'
           distribution: 'zulu'
       - name: Compilação / Test / Package
+        working-directory: back-end/
         run: mvn --activate-profiles prod package
 	
