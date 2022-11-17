@@ -1,0 +1,23 @@
+ci-backend-main.yml
+
+edit new file 
+name: CI Back-end
+
+on: [push] // pode ser assim     // quando que o action vai ser acionado
+	push: // ou assim 
+	
+jobs:
+	primeiro-job:
+		runs-on: ubuntu-latest     //tipo de maquina virtual
+		steps:
+			- run: echo "Primeiro Passo"
+			- name: Checkout
+			  users: actions/checkout@v3  //usuario do git gub e um repositorio do git hub
+			- name: Lista arquivos
+			  run: ls ${{ github.workspace }}
+			- name: Status
+			  run: echo "Status ${{ job.status }}"
+			  
+			  
+			  
+Start Commit
