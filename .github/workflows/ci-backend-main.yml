@@ -9,7 +9,7 @@ on:
   
 # Modificar workflow para que o job que compila o projeto do back-end, realiza os testes e cria o arquivo JAR, seja dividido em dois jobs, sendo um para teste e outro para criar o arquivo JAR.
 jobs:
-  tests: 
+  test: 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,13 +18,12 @@ jobs:
         with:
           java-version: '11'
           distribution: 'zulu'
-      - name: Compilação / Test / Package
+      - name: Compilação / Test
         working-directory: back-end/
         run: mvn --activate-profiles prod test
 
 
-  build:
-    runs-on: ubuntu-latest
+  package:
     steps:
       - uses: actions/checkout@v3
       - name: Criando arquivo Jar
