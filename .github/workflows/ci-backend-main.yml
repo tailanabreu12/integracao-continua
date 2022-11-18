@@ -1,9 +1,14 @@
 name: CI Back-end
 
 on:
-  push:
+  push:  # Vai executar quando tiver um push
     branches:
+      #- '**' # vai fazer em todas  // Delimitando onde ele vai rodar
+      #- '!main' # Todas que não estão na main
       - 'main'
+    paths:
+      - 'back-end/**'
+  pull_requests: # E também quando tiver um pull_requests
     paths:
       - 'back-end/**'
   
