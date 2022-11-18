@@ -8,6 +8,7 @@ on:
       - 'main'
     paths:
       - 'back-end/**'
+  workflow_call:
   pull_request: # E também quando tiver um pull_requests
     paths:
       - 'back-end/**'
