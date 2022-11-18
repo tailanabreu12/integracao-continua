@@ -1,0 +1,1 @@
+Testando o merge automatizado da branch teste2 para a main
