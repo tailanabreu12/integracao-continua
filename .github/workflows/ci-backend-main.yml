@@ -8,7 +8,7 @@ on:
       - 'main'
     paths:
       - 'back-end/**'
-  pull_requests: # E também quando tiver um pull_requests
+  pull_request: # E também quando tiver um pull_requests
     paths:
       - 'back-end/**'
   
