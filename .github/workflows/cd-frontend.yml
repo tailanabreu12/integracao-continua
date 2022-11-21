@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v3  # depois instalação do node
         with:  #especificando a versa0 do node
           node-version: 16
-      - run: npm install
+      - run: npm install node
       - run: npm run build --prod
         working-directory: front-end/
       - uses: akhileshns/heroku-deploy@v3.12.12
