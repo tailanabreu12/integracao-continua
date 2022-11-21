@@ -22,6 +22,9 @@ jobs:
       - uses: actions/setup-node@v3  # depois instalação do node
         with:  #especificando a versa0 do node
           node-version: 16
+      - run: npm install
+      - run: npm run build --prod
+        working-directory: front-end/
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
@@ -29,16 +32,16 @@ jobs:
           heroku_email: "tailanabreuads@gmail.com"
           justlogin: true
       - run: heroku auth:whoami
-        working-directory: "front-end/"
+        #working-directory: "front-end/"
 
         # comando para instalar o node 
-        run: npm install
+        #run: npm install
         # comando para fazer o build do projeto
-        run: npm run build --prod
+        #run: npm run build --prod
         # especificando o diretorio do build do projeto
-        appdir: "front-end/dist/sgcm-tailan"
+        #appdir: "front-end/dist/sgcm-tailan"
         # comando para fazer o deploy no heroku
-        run: heroku container:push web --app sgcm-tailan
+        #run: heroku container:push web --app sgcm-tailan
 
 
       
