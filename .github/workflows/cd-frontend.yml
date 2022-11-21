@@ -1,6 +1,6 @@
 # workflow deploy angular app
 
-name: CD Back-end
+name: CD Front-end
 
 on: 
   # schedule:
