@@ -1,0 +1,39 @@
+# workflow deploy angular app
+
+name: CD Back-end
+
+on: 
+  # schedule:
+  #   - cron: '*/10 * * * *'
+  workflow_dispatch:
+    
+jobs: 
+
+  ci:
+    name: CI Workflow Main
+    uses: ./.github/workflows/ci-backend-main.yml
+  
+  deploy: 
+    needs: ci
+    runs-on: ubuntu-latest
+    name: Deploy Heroku
+    steps:
+      - uses: actions/checkout@v3  #checkout do repositorio
+      - uses: actions/setup-node@v3  # depois instalação do node
+        with:  #especificando a versa0 do node
+          node-version: 16
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "sgcm-tailan"
+          heroku_email: "tailanabreuads@gmail.com"
+          justlogin: true
+      - run: heroku auth:whoami
+      
+      # - name: Instação do cliente Railway
+      #   run: npm install -g @railway/cli
+      # - name: Deploy  # Iniciando o deploy 
+      #   working-directory: back-end/   #especificando o diretorio
+      #   run: railway up --detach --service sgcm-tailan # comando que se conecta com a plataforma, faz o deploy e mostra um log
+      #   env: 
+      #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
