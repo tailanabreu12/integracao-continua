@@ -4,7 +4,7 @@ name: CD Front-end
 
 on: 
   # schedule:
-  #   - cron: '*/10 * * * *'
+  #   - cron: '10 * * * *'
   workflow_dispatch:
     
 jobs: 
@@ -29,6 +29,18 @@ jobs:
           heroku_email: "tailanabreuads@gmail.com"
           justlogin: true
       - run: heroku auth:whoami
+        appdir: "front-end/"
+
+        # comando para instalar o node 
+        run: npm install
+        # comando para fazer o build do projeto
+        run: npm run build --prod
+        # especificando o diretorio do build do projeto
+        appdir: "front-end/dist/sgcm-tailan"
+        # comando para fazer o deploy no heroku
+        run: heroku container:push web --app sgcm-tailan
+
+
       
       # - name: Instação do cliente Railway
       #   run: npm install -g @railway/cli
