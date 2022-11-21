@@ -20,7 +20,7 @@ public class FiltroCors {
             Arrays.asList(
                 "http://127.0.0.1:5500",
                 "https://localhost:4200",
-                "https://moonlit-boba-9e8c3f.netlify.app")
+                "https://sgcm-tailan.netlify.app") // URL do front-end
         );
         corsConfig.setAllowedMethods(Arrays.asList("*"));
         corsConfig.setAllowedHeaders(Arrays.asList("*"));
