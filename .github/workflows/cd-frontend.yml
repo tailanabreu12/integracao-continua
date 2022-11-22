@@ -15,6 +15,7 @@ jobs:
   
   deploy: 
     needs: ci
+    # if: github.repository == 'integracao-continua/front-end'
     runs-on: ubuntu-latest
     name: Deploy Heroku
     steps:
@@ -22,7 +23,8 @@ jobs:
       - uses: actions/setup-node@v3  # depois instalação do node
         with:  #especificando a versa0 do node
           node-version: 16
-        working-directory: front-end/
+        # working-directory: front-end/
+        appdir: "integracao-continua/front-end"
       - run: npm install node
       - run: npm run build --prod
       - uses: akhileshns/heroku-deploy@v3.12.12
