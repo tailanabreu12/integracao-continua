@@ -37,6 +37,7 @@ jobs:
           heroku_app_name: "sgcm-tailan"
           heroku_email: "tailanabreuads@gmail.com"
           justlogin: true
+        appdir: "dist/sgcm-tailan"
       - run: heroku auth:whoami
         #working-directory: "front-end/"
 
