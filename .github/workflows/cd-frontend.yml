@@ -6,6 +6,10 @@ on:
   # schedule:
   #   - cron: '10 * * * *'
   workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: front-end/
     
 jobs: 
 
@@ -24,7 +28,7 @@ jobs:
         with:  #especificando a versa0 do node
           node-version: 16
         # working-directory: front-end/
-        working-directory: integracao-continua/front-end/
+        # working-directory: integracao-continua/front-end/
       - run: npm install node
       - run: npm run build --prod
       - uses: akhileshns/heroku-deploy@v3.12.12
