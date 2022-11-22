@@ -9,12 +9,12 @@ on:
     
 jobs: 
 
-  ci:
-    name: CI Workflow Main
-    uses: ./.github/workflows/ci-backend-main.yml
+  # ci:
+  #   name: CI Workflow Main
+  #   uses: ./.github/workflows/ci-backend-main.yml
   
   deploy: 
-    needs: ci
+    # needs: ci 
     # if: github.repository == 'integracao-continua/front-end'
     runs-on: ubuntu-latest
     name: Deploy Heroku
